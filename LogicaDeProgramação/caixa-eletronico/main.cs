@@ -32,8 +32,8 @@ class Program {
       case 2:
       for(int i = 1; i < 100; i++)
       {
-        Console.Write("\nDigite o valor do saque: ");
-        if(float.TryParse(Console.ReadLine(), out saque[i]) && saque[i] > 0)
+        Console.Write("\nDigite o valor do saque:(Limite de 1000R$) ");
+        if(float.TryParse(Console.ReadLine(), out saque[i]) && (saque[i] > 0) && (saque[i] < 1000))
         {
             Console.WriteLine($"\nO valor remasnescente é {saldo:F2}. Você sacou : {saque[i]:F2}.");
             saldo = saldo - saque[i];
@@ -79,7 +79,7 @@ class Program {
       for(int i = 1; i < 100; i++)
       {
         Console.Write("\nDigite o valor da transferencia: ");
-        if(float.TryParse(Console.ReadLine(), out transferencia[i]) && transferencia[i] > 0)
+        if(float.TryParse(Console.ReadLine(), out transferencia[i]) && (transferencia[i] > 0) && (transferencia[i] <= saldo))
         {
           Console.Write("\nInsira o número da conta para qual deseja transferir > ");
           num[i] = Console.ReadLine();
@@ -107,7 +107,7 @@ class Program {
         {
           for(int i = 1; i <= vezes; i++)
           {
-            Console.WriteLine($"\nExtrato:\n Saldo: {saldo:F2}\n Saque: {saque[i]:F2}\n Depósito: {deposito[i]:F2}\n Transferência: {transferencia[i]:F2} para a conta de número {num[i]}.");
+            Console.WriteLine($"\nExtrato {i}:\n Saldo: {saldo:F2}\n Saque: {saque[i]:F2}\n Depósito: {deposito[i]:F2}\n Transferência: {transferencia[i]:F2} para a conta de número {num[i]}.");
           }
         } 
         else
