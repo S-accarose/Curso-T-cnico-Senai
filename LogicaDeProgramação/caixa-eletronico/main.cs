@@ -93,13 +93,11 @@ class Program
                                     contaTransf = Console.ReadLine();
                                 } while (contaTransf.Length != 5);
 
-                                // Procurar a conta de destino
                                 int contaDestinoIndex = Array.IndexOf(contas, contaTransf);
                                 if (contaDestinoIndex >= 0)
                                 {
-                                    saldo[x] -= transferencia[k]; // Retira da conta atual
-                                    saldo[contaDestinoIndex] += transferencia[k]; // Adiciona à conta de destino
-
+                                    saldo[x] -= transferencia[k];
+                                    saldo[contaDestinoIndex] += transferencia[k];
                                     Console.WriteLine($"Transferência de R$ {transferencia[k]:F2} realizada para a conta {contaTransf}.");
                                     k++;
                                     vezes++;
